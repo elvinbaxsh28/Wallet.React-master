@@ -1,12 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
-import { FaSun, FaMoon} from "react-icons/fa";
-import {BsSun, BsSunFill, BsMoonFill } from "react-icons/bs";
-import {FiSun} from "react-icons/fi";
-
-
-import sun from "../Assets/sun.png";
-
+import { BsSunFill, BsMoonFill } from "react-icons/bs";
 
 const NavBar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -14,15 +8,15 @@ const NavBar = () => {
   const svgStyle = {
     marginRight: "13px",
     marginTop: "5px",
-    marginBottom:"4px"
+    marginBottom: "4px",
   };
 
   return (
     <div className={`navbar-${theme}`} id="NavBar">
       <div className="mainSide">
         <svg
-          width="36"
-          height="36"
+          width="52"
+          height="40"
           viewBox="0 0 36 36"
           fill="none"
           style={svgStyle}
@@ -39,52 +33,32 @@ const NavBar = () => {
           />
         </svg>
         <h2>Senior.az</h2>
-     
       </div>
-      {/* toggle-button - nin active-i  background-color: blue oldugu ucun active olanda mavi reng edecek */}
-      {/* toggle-icon - nun active-i color white oldugu ucun active olanda ag reng edecek */}
-
-      {/* <div className="buttons">
+      
+      <div className="buttons">
         <label className={`switch ${theme}`}>
           <input
             type="checkbox"
-            checked={theme === "dark"}
             onChange={() => toggleTheme(theme === "dark" ? "light" : "dark")}
           />
           <span className="slider round">
-            <span className="iconSun">
-              <BsSunFill
+            <div className="parent">
+              <p
+                id="iconSun"
                 className={`toggle-icon ${theme === "dark" ? "active" : ""}`}
-              />
-            </span>
-            <span className="iconMoon">
-              <BsMoonFill
+              >
+                <BsSunFill />
+              </p>
+              <p
+                id="iconMoon"
                 className={`toggle-icon ${theme === "light" ? "active" : ""}`}
-              />
-            </span>
+              >
+                <BsMoonFill />
+              </p>
+            </div>
           </span>
         </label>
-      </div> */}
-
-
-
-
-<div className="buttons">
-    <label className={`switch ${theme}`}>
-    <input
-      type="checkbox"
-      checked={theme === "dark"}
-      onChange={() => toggleTheme(theme === "dark" ? "light" : "dark")}
-    />
-    <span className="slider round">
-      <div className="parent">
-     <p id="iconSun" className={`toggle-icon ${theme === "dark" ? "active" : ""}`}><BsSunFill  /></p>   
-     <p id="iconMoon" className={`toggle-icon ${theme === "light" ? "active" : ""}`}><BsMoonFill  /></p> 
-     </div>
-    </span>
-
-  </label>
-</div>
+      </div>
     </div>
   );
 };
