@@ -16,11 +16,12 @@ const CurrencyProvider = ({ children }) => {
     { label: "AZN", symbol: "₼", rate: 1.7 },
   ];
 
- 
   const getConvertedAmount = (amount) => {
-    const selectedCurrency = currencyOptions.find((option) => option.label === currency);
+    const selectedCurrency = currencyOptions.find(
+      (option) => option.label === currency
+    );
     const convertedAmount = amount * selectedCurrency.rate;
-  
+
     return convertedAmount.toFixed(2);
   };
 
